@@ -1,41 +1,72 @@
+We need to output the complete modified file after applying the SUGGESTED EDIT to the ORIGINAL CODE. The instruction says: "Apply the SUGGESTED EDIT to the ORIGINAL CODE. Output the complete modified file." So we should replace the original code with the suggested edit entirely? Or apply the edit as changes? The SUGGESTED EDIT is a completely different HTML file: a simple "Halo Dunia" page with CSS styling, card layout, etc. The original was a cafe demo fetching data. The instruction might be to overwrite the original file with the suggested edit. It says "Apply the SUGGESTED EDIT to the ORIGINAL CODE." Given that the SUGGESTED EDIT is a full HTML document, and the ORIGINAL CODE is a full HTML document, it's likely they want to replace the original content with the new one. So the output should be the SUGGESTED EDIT itself. However, sometimes "apply edit" could mean making modifications. But here the edit is a complete replacement. I'll output the SUGGESTED EDIT exactly as provided. The instruction says "Output ONLY code." So I'll output the suggested HTML code as the final modified file.```html
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Cafe Demo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halo Dunia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    h1 {
+      color: #333;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    p {
+      color: #666;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+    footer {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-
-  <h1>☕ Cafe Gw</h1>
-
-  <h2 id="status">Loading...</h2>
-  <p id="pesan"></p>
-
-  <script>
-    const url = "https://opensheet.elk.sh/1_W1DzLbQiFykTp8rSTituEZwKKS184klT9_fqOX7QqY/Sheet1";
-
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        const cafe = data[0];
-
-        const statusEl = document.getElementById("status");
-        const pesanEl = document.getElementById("pesan");
-
-        if (cafe.status === "buka") {
-          statusEl.innerHTML = "🟢 BUKA";
-          statusEl.style.color = "green";
-        } else {
-          statusEl.innerHTML = "🔴 TUTUP";
-          statusEl.style.color = "red";
-        }
-
-        pesanEl.innerText = cafe.pesan;
-      })
-      .catch(err => {
-        document.getElementById("status").innerText = "Gagal load data";
-        console.error(err);
-      });
-  </script>
-
+  <div class="card">
+    <h1>Halo, Dunia! 🌍</h1>
+    <p>Ini adalah website sederhana satu halaman yang dibuat dengan HTML dan CSS murni.</p>
+    <a href="#" class="btn">Jelajahi</a>
+    <footer>&copy; 2024 Rajendra Cakra</footer>
+  </div>
 </body>
 </html>
