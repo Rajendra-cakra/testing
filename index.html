@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cafe Demo</title>
+</head>
+<body>
+
+  <h1>☕ Cafe Gw</h1>
+
+  <h2 id="status">Loading...</h2>
+  <p id="pesan"></p>
+
+  <script>
+    const url = "https://opensheet.elk.sh/1_W1DzLbQiFykTp8rSTituEZwKKS184klT9_fqOX7QqY/Sheet1";
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        const cafe = data[0];
+
+        const statusEl = document.getElementById("status");
+        const pesanEl = document.getElementById("pesan");
+
+        if (cafe.status === "buka") {
+          statusEl.innerHTML = "🟢 BUKA";
+          statusEl.style.color = "green";
+        } else {
+          statusEl.innerHTML = "🔴 TUTUP";
+          statusEl.style.color = "red";
+        }
+
+        pesanEl.innerText = cafe.pesan;
+      })
+      .catch(err => {
+        document.getElementById("status").innerText = "Gagal load data";
+        console.error(err);
+      });
+  </script>
+
+</body>
+</html>
